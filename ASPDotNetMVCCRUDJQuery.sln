@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASPDotNetMVCCRUDJQuery", "ASPDotNetMVCCRUDJQuery.csproj", "{60A4F580-88E9-4C21-8D85-EE0AC5E8E0EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{60A4F580-88E9-4C21-8D85-EE0AC5E8E0EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A4F580-88E9-4C21-8D85-EE0AC5E8E0EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A4F580-88E9-4C21-8D85-EE0AC5E8E0EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A4F580-88E9-4C21-8D85-EE0AC5E8E0EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0DDAF4E-B14C-4802-9C27-B4DCBECFFBAF}
+	EndGlobalSection
+EndGlobal
