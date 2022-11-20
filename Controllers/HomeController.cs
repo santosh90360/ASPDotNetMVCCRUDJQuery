@@ -19,20 +19,23 @@ namespace ASPDotNetMVCCRUDJQuery.Controllers
         {
             var customers = await _customerRepository.GetCustomers();
             List<Customer> custs = new List<Customer>();
-            custs = customers.ToList(); ;
+            custs = customers.ToList();
             return View(custs);
         }
         [HttpPost]
-        public JsonResult InsertCustomer(Customer customer)
+        public ActionResult InsertCustomer(Customer customer)
         {
-            _customerRepository.InsertCustomer(customer);
+            if (_customerRepository.InsertCustomer(customer))
+            {
+                return RedirectToAction("Index","Home");
+            }
             return Json(customer);
         }
 
         [HttpPost]
         public ActionResult UpdateCustomer(Customer customer)
         {
-            if(customer.Name == null)
+            if (customer.Name == null)
             {
                 return View(customer);
             }
@@ -42,11 +45,11 @@ namespace ASPDotNetMVCCRUDJQuery.Controllers
         [HttpPost]
         public ActionResult DeleteCustomer(string customerId)
         {
-            if (customerId=="0" || customerId == null)
+            if (customerId == "0" || customerId == null)
             {
                 return View(nameof(Index));
             }
-            _customerRepository.DeleteCustomer(Convert.ToInt32(customerId));           
+            _customerRepository.DeleteCustomer(Convert.ToInt32(customerId));
             return new EmptyResult();
         }
 

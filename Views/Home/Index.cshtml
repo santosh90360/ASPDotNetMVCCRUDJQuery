@@ -54,7 +54,7 @@
                         <tr>
                             <td>
                                 Name<br />
-                                <input type="text" id="txtName" style="width:140px" />
+                            <input type="text" id="txtName" style="width:200px" class="form-control" />
                             </td>
                             <td>
                                 Country:<br />
@@ -64,11 +64,11 @@
                                 new SelectListItem { Text="India", Value="1" },
                                 new SelectListItem { Text="Australia", Value="2" },
                                 new SelectListItem { Text="USA", Value="3" }
-                                }, new { @style = "width:90px;height:25px;", @id = "ddlAddCountry" })
+                            }, new {@class="form-control" , @style = "width:200px;", @id = "ddlAddCountry" })
                             </td>
-                            <td style="width: 200px">
+                            <td style="width: 200px">   
                                 <br />
-                                <input type="button" id="btnAdd" value="Add" class="btn-sm btn-success" />
+                                <input type="button" id="btnAdd" value="Add New" class="btn-sm btn-success" />
                             </td>
                         </tr>
                     </table>
@@ -99,13 +99,14 @@
     };
 
     //Add event handler.
-    $("body").on("click", "#btnAdd", function () {
-        debugger;
-        var txtName = $("#txtName");
-        var ddlCountry = $("#ddlAddCountry").find("option:selected");
+    $("body").on("click", "#btnAdd", function () { 
+        var txtName="";
+        var ddlCountry="";
+            txtName = $("#txtName");
+            ddlCountry = $("#ddlAddCountry").find("option:selected").text();
         var customer = {
             name: txtName.val(),
-            country: ddlCountry.val()
+            country: ddlCountry
         };
         $.ajax({
             type: "POST",
@@ -116,9 +117,10 @@
             //ontentType: 'application/x-www-form-urlencoded; charset=UTF-8'
             // dataType: "json",
             success: function (r) {
-                var row = $("#tblCustomers tr:last-child").clone(true);
-                AppendRow(row, r.CustomerId, r.Name, r.Country);
-                txtName.val("");
+                window.location.href = '@Url.Action("Index", "Home")';
+                //var row = $("#tblCustomers tr:last-child").clone(true);
+                //AppendRow(row, r.CustomerId, r.Name, r.Country);
+                //txtName.val("");
             }
         });
     });
