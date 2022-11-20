@@ -6,5 +6,7 @@ namespace ASPDotNetMVCCRUDJQuery.Repository
     {
         Task<IEnumerable<Customer>> GetCustomers();
         bool InsertCustomer(Customer customer);
+        bool UpdateCustomer(Customer customer);
+        bool DeleteCustomer(int customerId);
     }
 }

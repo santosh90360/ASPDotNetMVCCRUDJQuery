@@ -24,11 +24,31 @@ namespace ASPDotNetMVCCRUDJQuery.Controllers
         }
         [HttpPost]
         public JsonResult InsertCustomer(Customer customer)
-        {            
+        {
             _customerRepository.InsertCustomer(customer);
             return Json(customer);
         }
 
+        [HttpPost]
+        public ActionResult UpdateCustomer(Customer customer)
+        {
+            if(customer.Name == null)
+            {
+                return View(customer);
+            }
+            _customerRepository.UpdateCustomer(customer);
+            return new EmptyResult();
+        }
+        [HttpPost]
+        public ActionResult DeleteCustomer(string customerId)
+        {
+            if (customerId=="0" || customerId == null)
+            {
+                return View(nameof(Index));
+            }
+            _customerRepository.DeleteCustomer(Convert.ToInt32(customerId));           
+            return new EmptyResult();
+        }
 
         public IActionResult Privacy()
         {
